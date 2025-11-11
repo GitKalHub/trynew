@@ -401,58 +401,6 @@
             font-size: 0.95rem;
         }
         
-        /* Academic Images Section */
-        .academic-images {
-            margin: 3rem 0;
-        }
-        
-        .academic-image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-        
-        .academic-image-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(138, 43, 226, 0.1);
-        }
-        
-        .academic-image-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(106, 13, 173, 0.2);
-        }
-        
-        .academic-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .academic-image-card:hover .academic-img {
-            transform: scale(1.05);
-        }
-        
-        .academic-img-info {
-            padding: 1.2rem;
-        }
-        
-        .academic-img-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #6a0dad;
-        }
-        
-        .academic-img-desc {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
         /* Media Elements */
         .media-container {
             display: flex;
@@ -617,41 +565,6 @@
             transform: translateY(-5px);
         }
         
-        /* Instructions Section */
-        .instructions {
-            background-color: #f0e6ff;
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-left: 4px solid #8a2be2;
-            position: relative;
-        }
-        
-        .instructions::before {
-            content: '💡';
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            font-size: 1.5rem;
-            background: white;
-            padding: 5px;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .instructions h3 {
-            color: #6a0dad;
-            margin-bottom: 1rem;
-        }
-        
-        .instructions ol {
-            margin-left: 1.5rem;
-        }
-        
-        .instructions li {
-            margin-bottom: 0.8rem;
-        }
-        
         /* Responsive Design */
         @media (max-width: 768px) {
             .profile {
@@ -690,10 +603,16 @@
             .kdrama-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
-            
-            .academic-image-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
+        }
+        
+        /* Fallback images for debugging */
+        .fallback-img {
+            background: linear-gradient(135deg, #6a0dad, #8a2be2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -719,11 +638,14 @@
             <h1>About Me</h1>
                        
             <div class="profile">
-                <!-- Profile picture with relative path -->
-                <img src="./images/Huda-1.jpg" alt="Profile Picture" class="profile-img" id="profilePicture">
+                <!-- Profile picture -->
+                <img src="Huda-1.jpg" alt="Profile Picture" class="profile-img" id="profilePicture" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'; this.alt='Profile Picture Not Available';">
                 
                 <div class="profile-info">
                     <h2>Hello, I'm Huda</h2>
+                    <p>Welcome to my personal website! I'm excited to share my journey, interests, and aspirations with you.</p>
+                </div>
+            </div>
                                 
             <div class="card">
                 <h2>My Background</h2>
@@ -771,7 +693,7 @@
                 
                 <div class="kdrama-grid">
                     <div class="kdrama-card">
-                        <img src="./images/Alchemy-of-Souls.jpg" alt="Alchemy of Souls" class="kdrama-img">
+                        <img src="Alchemy-of-Souls.jpg" alt="Alchemy of Souls" class="kdrama-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'; this.alt='Alchemy of Souls Image Not Available';">
                         <div class="kdrama-info">
                             <div class="kdrama-title">Alchemy of Souls</div>
                             <div class="kdrama-desc">A South Korean fantasy drama series set in a fictional country called Daeho, where magic, martial arts, and political intrigue all mix together.</div>
@@ -779,7 +701,7 @@
                     </div>
                     
                     <div class="kdrama-card">
-                        <img src="./images/WLGYT.jpg" alt="When Life Give You Tangerines" class="kdrama-img">
+                        <img src="WLGYT.jpg" alt="When Life Give You Tangerines" class="kdrama-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1489599809505-fc6acc43c69f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'; this.alt='When Life Give You Tangerines Image Not Available';">
                         <div class="kdrama-info">
                             <div class="kdrama-title">When Life Give You Tangerines</div>
                             <div class="kdrama-desc">A Korean drama about a woman from Jeju Island and a man who loves her deeply, showing how their lives and love endure through changing times and hardships.</div>
@@ -787,7 +709,7 @@
                     </div>
                     
                     <div class="kdrama-card">
-                        <img src="./images/Conjuring.jpg" alt="Conjuring:The Devil Made Me Do It" class="kdrama-img">
+                        <img src="Conjuring.jpg" alt="Conjuring:The Devil Made Me Do It" class="kdrama-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1478720568477-b2709ad0b8ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'; this.alt='Conjuring Image Not Available';">
                         <div class="kdrama-info">
                             <div class="kdrama-title">Conjuring:The Devil Made Me Do It</div>
                             <div class="kdrama-desc">A horror film where paranormal investigators Ed and Lorraine Warren uncover dark forces behind a murder case that involves demonic possession.</div>
@@ -795,7 +717,7 @@
                     </div>
                     
                     <div class="kdrama-card">
-                        <img src="./images/Whisper.jpg" alt="Whisper of The Heart" class="kdrama-img">
+                        <img src="Whisper.jpg" alt="Whisper of The Heart" class="kdrama-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'; this.alt='Whisper of The Heart Image Not Available';">
                         <div class="kdrama-info">
                             <div class="kdrama-title">Whisper of The Heart</div>
                             <div class="kdrama-desc">A coming-of-age anime film about a young girl who discovers her passion for writing and dreams while forming a heartfelt connection with a boy who inspires her.</div>
@@ -803,20 +725,23 @@
                     </div>
                 </div>
             </div>
+            
             <div class="media-container">
                 <div class="video-container">
                     <h3>My favorite video</h3>
                     <video controls>
-                        <source src="./media/tak-kenai.mp4" type="video/mp4">
+                        <source src="tak-kenai.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+                    <p style="text-align: center; margin-top: 10px; color: #666;">If video doesn't load, it might be too large for GitHub</p>
                 </div>
                 <div class="audio-container">
                     <h3>My favorite song</h3>
                     <audio controls>
-                        <source src="./media/ptv.mp3" type="audio/mpeg">
+                        <source src="ptv.mp3" type="audio/mpeg">
                         Your browser does not support the audio element.
                     </audio>
+                    <p style="text-align: center; margin-top: 10px; color: #666;">Pierce The Veil - King For A Day</p>
                 </div>
             </div>
 
@@ -893,46 +818,6 @@
                         <li><strong>Relevant Coursework:</strong> Web Development, Data Structures, Algorithms, Database Systems</li>
                         <li><strong>Languages:</strong> English (Native), Spanish (Intermediate)</li>
                     </ul>
-                </div>
-            </div>
-            
-            <!-- Academic Images Section -->
-            <div class="academic-images">
-                <h2>Academic Journey in Pictures</h2>
-                <p>Here are some moments from my academic journey that represent my learning experiences and achievements:</p>
-                
-                <div class="academic-image-grid">
-                    <div class="academic-image-card">
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="University Campus" class="academic-img">
-                        <div class="academic-img-info">
-                            <div class="academic-img-title">University Life</div>
-                            <div class="academic-img-desc">My campus where I've been pursuing my degree and growing as a student.</div>
-                        </div>
-                    </div>
-                    
-                    <div class="academic-image-card">
-                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Study Session" class="academic-img">
-                        <div class="academic-img-info">
-                            <div class="academic-img-title">Study Sessions</div>
-                            <div class="academic-img-desc">Late nights in the library working on assignments and projects.</div>
-                        </div>
-                    </div>
-                    
-                    <div class="academic-image-card">
-                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Group Project" class="academic-img">
-                        <div class="academic-img-info">
-                            <div class="academic-img-title">Collaborative Projects</div>
-                            <div class="academic-img-desc">Working with classmates on group assignments and presentations.</div>
-                        </div>
-                    </div>
-                    
-                    <div class="academic-image-card">
-                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Graduation" class="academic-img">
-                        <div class="academic-img-info">
-                            <div class="academic-img-title">Academic Achievements</div>
-                            <div class="academic-img-desc">Celebrating milestones and accomplishments throughout my education.</div>
-                        </div>
-                    </div>
                 </div>
             </div>
             
@@ -1067,27 +952,10 @@
                 });
             });
             
-            // Add error handling for images and media
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.addEventListener('error', function() {
-                    console.error('Failed to load image:', this.src);
-                    this.alt = 'Image not available';
-                });
-            });
-            
-            const videos = document.querySelectorAll('video');
-            videos.forEach(video => {
-                video.addEventListener('error', function() {
-                    console.error('Failed to load video:', this.src);
-                });
-            });
-            
-            const audios = document.querySelectorAll('audio');
-            audios.forEach(audio => {
-                audio.addEventListener('error', function() {
-                    console.error('Failed to load audio:', this.src);
-                });
+            // Debug image loading
+            console.log('Checking image sources:');
+            document.querySelectorAll('img').forEach(img => {
+                console.log(img.src);
             });
         });
     </script>
