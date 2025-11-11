@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Huda Personal Website</title>
     <style>
-        /* All your existing CSS styles remain the same */
         /* Global Styles */
         * {
             margin: 0;
@@ -721,7 +720,7 @@
                        
             <div class="profile">
                 <!-- Profile picture with relative path -->
-                <img src="images/Huda-1.jpg" alt="Profile Picture" class="profile-img" id="profilePicture">
+                <img src="./images/Huda-1.jpg" alt="Profile Picture" class="profile-img" id="profilePicture">
                 
                 <div class="profile-info">
                     <h2>Hello, I'm Huda</h2>
@@ -772,7 +771,7 @@
                 
                 <div class="kdrama-grid">
                     <div class="kdrama-card">
-                        <img src="images/Alchemy-of-Souls.jpg" alt="Alchemy of Souls" class="kdrama-img">
+                        <img src="./images/Alchemy-of-Souls.jpg" alt="Alchemy of Souls" class="kdrama-img">
                         <div class="kdrama-info">
                             <div class="kdrama-title">Alchemy of Souls</div>
                             <div class="kdrama-desc">A South Korean fantasy drama series set in a fictional country called Daeho, where magic, martial arts, and political intrigue all mix together.</div>
@@ -780,7 +779,7 @@
                     </div>
                     
                     <div class="kdrama-card">
-                        <img src="images/WLGYT.jpg" alt="When Life Give You Tangerines" class="kdrama-img">
+                        <img src="./images/WLGYT.jpg" alt="When Life Give You Tangerines" class="kdrama-img">
                         <div class="kdrama-info">
                             <div class="kdrama-title">When Life Give You Tangerines</div>
                             <div class="kdrama-desc">A Korean drama about a woman from Jeju Island and a man who loves her deeply, showing how their lives and love endure through changing times and hardships.</div>
@@ -788,7 +787,7 @@
                     </div>
                     
                     <div class="kdrama-card">
-                        <img src="images/Conjuring.jpg" alt="Conjuring:The Devil Made Me Do It" class="kdrama-img">
+                        <img src="./images/Conjuring.jpg" alt="Conjuring:The Devil Made Me Do It" class="kdrama-img">
                         <div class="kdrama-info">
                             <div class="kdrama-title">Conjuring:The Devil Made Me Do It</div>
                             <div class="kdrama-desc">A horror film where paranormal investigators Ed and Lorraine Warren uncover dark forces behind a murder case that involves demonic possession.</div>
@@ -796,7 +795,7 @@
                     </div>
                     
                     <div class="kdrama-card">
-                        <img src="images/Whisper.jpg" alt="Whisper of The Heart" class="kdrama-img">
+                        <img src="./images/Whisper.jpg" alt="Whisper of The Heart" class="kdrama-img">
                         <div class="kdrama-info">
                             <div class="kdrama-title">Whisper of The Heart</div>
                             <div class="kdrama-desc">A coming-of-age anime film about a young girl who discovers her passion for writing and dreams while forming a heartfelt connection with a boy who inspires her.</div>
@@ -808,14 +807,14 @@
                 <div class="video-container">
                     <h3>My favorite video</h3>
                     <video controls>
-                        <source src="media/tak-kenai.mp4" type="video/mp4">
+                        <source src="./media/tak-kenai.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="audio-container">
                     <h3>My favorite song</h3>
                     <audio controls>
-                        <source src="media/ptv.mp3" type="audio/mpeg">
+                        <source src="./media/ptv.mp3" type="audio/mpeg">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
@@ -1065,6 +1064,29 @@
                         document.getElementById(prevPage).classList.add('active');
                         document.querySelector(`.nav-links a[data-page="${prevPage}"]`).classList.add('active');
                     }
+                });
+            });
+            
+            // Add error handling for images and media
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('error', function() {
+                    console.error('Failed to load image:', this.src);
+                    this.alt = 'Image not available';
+                });
+            });
+            
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.addEventListener('error', function() {
+                    console.error('Failed to load video:', this.src);
+                });
+            });
+            
+            const audios = document.querySelectorAll('audio');
+            audios.forEach(audio => {
+                audio.addEventListener('error', function() {
+                    console.error('Failed to load audio:', this.src);
                 });
             });
         });
