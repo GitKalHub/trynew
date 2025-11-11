@@ -401,6 +401,58 @@
             font-size: 0.95rem;
         }
         
+        /* Academic Images Section */
+        .academic-images {
+            margin: 3rem 0;
+        }
+        
+        .academic-image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .academic-image-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(138, 43, 226, 0.1);
+        }
+        
+        .academic-image-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(106, 13, 173, 0.2);
+        }
+        
+        .academic-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .academic-image-card:hover .academic-img {
+            transform: scale(1.05);
+        }
+        
+        .academic-img-info {
+            padding: 1.2rem;
+        }
+        
+        .academic-img-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #6a0dad;
+        }
+        
+        .academic-img-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
         /* Media Elements */
         .media-container {
             display: flex;
@@ -603,16 +655,10 @@
             .kdrama-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
-        }
-        
-        /* Fallback images for debugging */
-        .fallback-img {
-            background: linear-gradient(135deg, #6a0dad, #8a2be2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
+            
+            .academic-image-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
         }
     </style>
 </head>
@@ -821,6 +867,46 @@
                 </div>
             </div>
             
+            <!-- Academic Images Section -->
+            <div class="academic-images">
+                <h2>Academic Journey in Pictures</h2>
+                <p>Here are some moments from my academic journey that represent my learning experiences and achievements:</p>
+                
+                <div class="academic-image-grid">
+                    <div class="academic-image-card">
+                        <img src="academic-1.jpg" alt="University Campus" class="academic-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'; this.alt='University Campus Image Not Available';">
+                        <div class="academic-img-info">
+                            <div class="academic-img-title">University Life</div>
+                            <div class="academic-img-desc">My campus where I've been pursuing my degree and growing as a student.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="academic-image-card">
+                        <img src="academic-2.jpg" alt="Study Session" class="academic-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'; this.alt='Study Session Image Not Available';">
+                        <div class="academic-img-info">
+                            <div class="academic-img-title">Study Sessions</div>
+                            <div class="academic-img-desc">Late nights in the library working on assignments and projects.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="academic-image-card">
+                        <img src="academic-3.jpg" alt="Group Project" class="academic-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'; this.alt='Group Project Image Not Available';">
+                        <div class="academic-img-info">
+                            <div class="academic-img-title">Collaborative Projects</div>
+                            <div class="academic-img-desc">Working with classmates on group assignments and presentations.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="academic-image-card">
+                        <img src="academic-4.jpg" alt="Graduation" class="academic-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'; this.alt='Graduation Image Not Available';">
+                        <div class="academic-img-info">
+                            <div class="academic-img-title">Academic Achievements</div>
+                            <div class="academic-img-desc">Celebrating milestones and accomplishments throughout my education.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="card">
                 <h2>Academic Projects & Experience</h2>
                 <p><strong>Web Development Project (2023):</strong> Created a responsive website for a local nonprofit organization, implementing user-friendly design and functionality.</p>
@@ -950,12 +1036,6 @@
                         document.querySelector(`.nav-links a[data-page="${prevPage}"]`).classList.add('active');
                     }
                 });
-            });
-            
-            // Debug image loading
-            console.log('Checking image sources:');
-            document.querySelectorAll('img').forEach(img => {
-                console.log(img.src);
             });
         });
     </script>
